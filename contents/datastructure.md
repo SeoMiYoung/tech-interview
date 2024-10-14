@@ -214,6 +214,7 @@
   * 2개 이상의 경로가 가능하다.
     * 즉, 노드들 사이에 무방향/방향에서 양방향 경로를 가질 수 있다.
   * self-loop 뿐 아니라 loop/circuit 모두 가능하다.
+    ![image](https://github.com/user-attachments/assets/15d72632-9086-4cb3-8f7d-56fd54eb9bdb)
   * 루트 노드라는 개념이 없다.
   * 부모-자식 관계라는 개념이 없다.
   * 순회는 DFS나 BFS로 이루어진다.
