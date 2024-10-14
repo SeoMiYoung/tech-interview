@@ -145,6 +145,8 @@
 
 ### Stack
 * 스택(Stack)의 개념
+    * 약간 엘레베이터 구조라고 이해하면 될 듯 => 엘레베이터 먼저 탄 사람이 가장 구석으로 들어가니깐, 마지막에 들어온 사람이 결국 가장 먼저 내림
+      * [암기] 스엘 (스택 엘레베이터)
     * 한 쪽 끝에서만 자료를 넣고 뺄 수 있는 LIFO(Last In First Out) 형식의 자료 구조
 * 스택(Stack)의 연산
   * 스택(Stack)는 LIFO(Last In First Out) 를 따른다. 즉, 가장 최근에 스택에 추가한 항목이 가장 먼저 제거될 항목이다.
@@ -153,7 +155,9 @@
     * peek(): 스택의 가장 위에 있는 항목을 반환한다.
     * isEmpty(): 스택이 비어 있을 때에 true를 반환한다.
 * 스택(Stack)의 사용 사례
-  * 재귀 알고리즘을 사용하는 경우 스택이 유용하다.
+  * 우리가 `ctrl + Z`할 때 이런 느낌으로 구현된거임
+  * `재귀 알고리즘`을 사용하는 경우 스택이 유용하다.
+    * `WHY?` STACK은 LIFO(Last In First Out)특성으로 인해, 가장 마지막에 호출된 함수부터 역순으로 실행이 완료됩니다. 이는 재귀의 기본 케이스(종료 조건)에 도달한 후, 결과가 `역순`으로 전파되는 방식과 일치합니다.
     * 재귀 알고리즘
       * 재귀적으로 함수를 호출해야 하는 경우에 임시 데이터를 스택에 넣어준다.
       * 재귀함수를 빠져 나와 퇴각 검색(backtrack)을 할 때는 스택에 넣어 두었던 임시 데이터를 빼 줘야 한다.
@@ -168,6 +172,7 @@
 
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [https://gmlwjd9405.github.io/2018/08/03/data-structure-stack.html](https://gmlwjd9405.github.io/2018/08/03/data-structure-stack.html)
+> - [스택 설명](https://www.youtube.com/watch?v=ELEoJHiqlF4)
 
 ### Queue
 * 큐(Queue)의 개념
