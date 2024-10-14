@@ -68,6 +68,7 @@
 * Hash 충돌 해결 방법
   1. Separating Chaining
       * JDK 내부에서 사용하는 충돌 처리 방식
+         * JDK(Java Development Kit)는 자바 애플리케이션을 구축하기 위한 필수적인 플랫폼 구성요소
       * Linked List(데이터 6개 이하) 또는 Red-Black Tree(데이터 8개 이상) 사용
         ![separatingChaining](./images/separatingChaining.png)
       * Linked List 사용 시 충돌이 발생하면 충돌 발생한 인덱스가 가리키고 있는 Linked List에 노드 추가하여 Value 삽입
