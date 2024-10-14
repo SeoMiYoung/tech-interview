@@ -71,6 +71,7 @@
          * JDK(Java Development Kit)는 자바 애플리케이션을 구축하기 위한 필수적인 플랫폼 구성요소
       * Linked List(데이터 6개 이하) 또는 Red-Black Tree(데이터 8개 이상) 사용
         ![separatingChaining](./images/separatingChaining.png)
+         * Linked List는 연산 복잡도가 O(n)이고, Red-Black Tree는 연산 복잡도가 O(log n)이다. 노드 수가 적을 때는 Linked List가 더 효율적이고, 많아지면 Red-Black Tree가 유리합니다. 그래서 기존 노드와 새 노드를 Linked List로 처음에 연결하다가, 노드 수가 8개 이상이 되면 Red-Black Tree로 변환합니다.
       * Linked List 사용 시 충돌이 발생하면 충돌 발생한 인덱스가 가리키고 있는 Linked List에 노드 추가하여 Value 삽입
       * Key에 대한 Value 탐색 시에는 인덱스가 가리키고 있는 Linked List를 선형 검색하여 Value 반환 (삭제도 마찬가지)
       * Linked List 구조를 사용하기 때문에 추가 데이터 수 제약이 적은편
