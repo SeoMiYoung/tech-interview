@@ -95,14 +95,22 @@
       * 버킷의 사이즈를 늘리자! 그러기 위해서 기존의 버킷을 새로운 버킷에 copy를 하고, 새로운 공간을 만듭니다. 보통 최대 버킷의 max값은 `max(bucket)=2^30`입니다. 
 
 * HashTable 장점
-  * 적은 리소스로 많은 데이터를 효율적으로 관리 가능
+  * 적은 리소스로 많은 데이터를 효율적으로 관리 가능 => 적은 메모리로 많은 데이터를 효율적으로 관리할 수 있음!
     * ex. HDD. Cloud에 있는 많은 데이터를 Hash로 매핑하여 작은 크기의 시 메모리로 프로세스 관리 가능
+      * 클라우드에서는 자주 접근하는 데이터(hot data)는 빠른 SSD에, 덜 자주 접근하는 데이터(cold data)는 저렴한 HDD에 저장합니다.
+      * HDD나 클라우드는 대용량 데이터 저장을 위한 것이고, 해시 테이블은 이러한 데이터를 효율적으로 관리하고 접근하기 위한 메모리 내 자료구조입니다. 두 개념이 직접적으로 연결되어 있지는 않지만, 대용량 데이터 관리 시스템에서 상호 보완적으로 사용될 수 있습니다.
   * 배열의 인덱스를 사용하기 때문에 빠른 검색, 삽입, 삭제 (O(1))
     * HashTable의 경우 인덱스는 데이터의 고유 위치이기 때문에 삽입 삭제 시 다른 데이터를 이동할 필요가 없어 삽입, 삭제도 빠른 속도 가능
   * Key와 Hash에 연관성이 없어 보안 유리
   * 데이터 캐싱에 많이 사용
-    * get, put 기능에 캐시 로직 추가 시 자주 hit하는 데이터 바로 검색 가능
+    * get(데이터 조회), put(데이터 저장) 기능에 캐시 로직 추가 시 자주 hit하는 데이터 바로 검색 가능
+      * 'get'작업 시: 먼저 캐시를 확인하고, 캐시에 없으면 원본 데이터 소스에서 조회합니다.
+      * 'put'작업 시: 데이터를 원본 소스에 저장하면서 동시에 캐시에도 저장합니다.
+      * '자주 hit하는 데이터'란, 자주 요청되는 데이터를 의미합니다. => 이러한 데이터를 캐시에 저장해 두면, 다음 요청 시 원본 데이터 소스에 접근하지 않고도 빠르게 데이터를 검색할 수 있습니다.
   * 중복 제거 유용
+    * 고유한 키 값: 해시 테이블은 각 데이터를 고유한 키와 연관시킵니다. 동일한 키를 가진 데이터를 추가하려고 하면, 기존 데이터를 덮어쓰거나 무시할 수 있어 자연스럽게 중복을 제거할 수 있습니다.
+    * 빠른 검색 속도: 해시 테이블은 평균적으로 O(1) 시간 복잡도로 데이터를 검색할 수 있습니다. 이는 새로운 요소를 추가할 때 기존 데이터와의 중복 여부를 빠르게 확인할 수 있게 해줍니다.
+    * 효율적인 메모리 사용: 중복된 데이터를 저장하지 않기 때문에, 메모리를 효율적으로 사용할 수 있습니다.
 
 * HashTable 단점
   * 충돌 발생 가능성
@@ -114,10 +122,12 @@
   * Key-Value 구조 및 Key에 대한 Hash로 Value 관리하는 것은 동일
   * HashTable
     * 동기
+      * 동기화(Synchronized)가 되어있다 => 여러 스레드가 동시에 같은 자원(예: 변수, 객체)에 접근하려 할 때, 한 번에 하나의 스레드만 접근할 수 있도록 제어하는 메커니즘입니다. => 그래서 Tread-safe하다고 하는데, Tread-safe란, 여러 스레드가 동시에 접근해도 프로그램이 의도한 대로 정확하게 동작하는 것을 의미합니다.
     * Key-Value 값으로 null 미허용 (Key가 hashcode(), equals()를 사용하기 때문)
     * 보조 Hash Function과 separating Chaining을 사용해서 비교적 충돌 덜 발생 (Key의 Hash 변형)
   * HashMap
     * 비동기 (멀티 스레드 환경에서 주의)
+      * 비동기화되어 있어, 멀티 스레드 환경에서 주의가 필요합니다. 물론, 동기화되지 않아 더 빠르긴 하지만, 멀티스레드 환경에서 안전하지 않을 수 있습니다.
     * Key-Value 값으로 null 허용
 
 * HashTable 성능
@@ -131,6 +141,7 @@
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [Hash, Hashing, Hash Table(해시, 해싱 해시테이블) 자료구조의 이해](https://velog.io/@cyranocoding/Hash-Hashing-Hash-Table%ED%95%B4%EC%8B%9C-%ED%95%B4%EC%8B%B1-%ED%95%B4%EC%8B%9C%ED%85%8C%EC%9D%B4%EB%B8%94-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%98-%EC%9D%B4%ED%95%B4-6ijyonph6o)
 > - [[자료구조] Hash/HashTable/HashMap](https://hee96-story.tistory.com/48)
+> - [[자료구조] 도움많이되는 유튭 영상](https://www.youtube.com/watch?v=ZBu_slSH5Sk)
 
 ### Stack
 * 스택(Stack)의 개념
