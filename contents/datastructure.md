@@ -224,6 +224,7 @@
 
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [https://gmlwjd9405.github.io/2018/08/13/data-structure-graph.html](https://gmlwjd9405.github.io/2018/08/13/data-structure-graph.html)
+> - [https://ttl-blog.tistory.com/954](https://ttl-blog.tistory.com/954)
 
 ### Tree
 * 트리(Tree)의 개념
