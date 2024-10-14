@@ -172,26 +172,28 @@
 
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [https://gmlwjd9405.github.io/2018/08/03/data-structure-stack.html](https://gmlwjd9405.github.io/2018/08/03/data-structure-stack.html)
-> - [스택 설명](https://www.youtube.com/watch?v=ELEoJHiqlF4)
+> - [스택 유튜브 설명](https://www.youtube.com/watch?v=ELEoJHiqlF4)
 
 ### Queue
 * 큐(Queue)의 개념
-  * 컴퓨터의 기본적인 자료 구조의 한가지로, 먼저 집어 넣은 데이터가 먼저 나오는 FIFO(First In First Out)구조로 저장하는 형식
+  * 컴퓨터의 기본적인 자료 구조의 한가지로, 먼저 집어 넣은 데이터가 먼저 나오는 FIFO(First In First Out)구조로 저장하는 형식 => 그래서 `순서를 보장`함
 * 큐(Queue)의 연산
-  * 큐(Queue)는 FIFO(First-In-First-Out) 를 따른다.
+  * 큐(Queue)는 FIFO(First-In-First-Out) 를 따른다. `(암기: 퍼큐)`
     * add(item): item을 리스트의 끝부분에 추가한다.
-    * remove(): 리스트의 첫 번째 항목을 제거한다.
+    * remove(): 리스트의 첫 번째 항목을 제거한다. => 첫번째 것부터 제거
     * peek(): 큐에서 가장 위에 있는 항목을 반환한다.
     * isEmpty(): 큐가 비어 있을 때에 true를 반환한다.
 * 큐(Queue)의 사용 사례
-  * 데이터가 입력된 시간 순서대로 처리해야 할 필요가 있는 상황에 이용한다.
+  * 데이터가 `입력된 시간 순서대로 처리해야 할 필요가 있는 상황`에 이용한다.
     * 너비 우선 탐색(BFS, Breadth-First Search) 구현
+      * => 깊숙히 있는 것은 후순위임!!
       * 처리해야 할 노드의 리스트를 저장하는 용도로 큐(Queue)를 사용한다.
       * 노드를 하나 처리할 때마다 해당 노드와 인접한 노드들을 큐에 다시 저장한다.
       * 노드를 접근한 순서대로 처리할 수 있다.
     * 캐시(Cache) 구현
     * 우선순위가 같은 작업 예약 (인쇄 대기열)
     * 선입선출이 필요한 대기열 (티켓 카운터)
+    * 은행에서 번호표 뽑고 기다리는 순간
     * 콜센터 고객 대기시간
     * 프린터의 출력 처리
     * 윈도우 시스템의 메시지 처리기
@@ -199,6 +201,7 @@
 
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [https://gmlwjd9405.github.io/2018/08/02/data-structure-queue.html](https://gmlwjd9405.github.io/2018/08/02/data-structure-queue.html)
+> - [큐 유튜브 설명](https://www.youtube.com/watch?v=ZZw6remsJNo)
 
 ### Graph
 * 그래프(Graph)의 개념
