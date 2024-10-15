@@ -344,6 +344,7 @@ class Node {
 > - [03. Red-Black Tree delete, fix-up](https://github.com/namjunemy/TIL/blob/master/Algorithm/red_black_tree_03.md)
 
 ### B+ Tree
+* `B Tree`는 일반적으로 `B- 트리`를 지칭합니다.
 * `B Tree` => `자녀 노드의 최대 개수를 입맛에 맞게 결정해서 쓸 수 있다!!!`
   * 만약에 단 2개가 아니라 3개를 저장하고 싶다면..?
     ![image](https://github.com/user-attachments/assets/a3a5499d-ee7b-4eaf-a35b-356008b51b20)
@@ -358,8 +359,14 @@ class Node {
   * 특징
     * 모든 leaf 노드들은 같은 레벨에 있다
     * => balanced tree이고, 검색 avg case/wort case 모두 시간 복잡도가 O(logN)이므로 조회할때 항상 일정한 성능을 낸다~ good!!
-* `B- Tree`
+* `B- Tree`: B트리와 동일
+  1. 모든 노드에 데이터를 저장
+  2. 한 노드에 여러 개의 키와 자식 노드를 가질 수 있음
+  3. 모든 리프 노드가 같은 레벨에 있음
 * `B+ Tree`
+  1. 데이터는 오직 리프 노드에만 저장
+  2. 내부 노드는 인덱스 역할만 함
+  3. 리프 노드들이 연결 리스트로 연결됨
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [(1부) B tree의 개념과 특징, 데이터 삽입이 어떻게 동작하는지를 설명합니다! (DB 인덱스과 관련있는 자료 구조)](https://www.youtube.com/watch?v=bqkcoSm_rCs)
 > - [(2부) B tree 데이터 삭제 동작 방식을 설명합니다 (DB 인덱스과 관련있는 자료 구조)](https://www.youtube.com/watch?v=H_u28u0usjA)
