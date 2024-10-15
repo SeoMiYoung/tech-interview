@@ -7,6 +7,8 @@
 * [Queue](#queue)
 * [Graph](#graph)
 * [Tree](#tree)
+* [Binary Tree](#binary-tree)
+* [Binary Search Tree](#binary-search-tree)
 * [그래프(Graph)와 트리(Tree)의 차이점](#그래프와-트리의-차이점)
 * [Binary Heap](#binary-heap)
 * [Red-Black Tree](#red-black-tree)
@@ -269,6 +271,28 @@ class Node {
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html](https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html)
 
+### Binary Tree
+* 공집합(빈트리), 노드가 1개인 트리 => 모두 Binary Tree(이진 트리)!!
+  * `WHY?` 루트 노드를 중심으로 두 개의 서브 트리(큰 트리에 속하는 작은 트리)로 나뉘어 진다. 또한 나뉘어진 두 서브 트리도 모두 이진 트리어야 한다. 재귀적인 정의라 맞는듯 하면서도 이해가 쉽지 않을 듯하다. 한 가지 덧붙이자면 공집합도 이진 트리로 포함시켜야 한다. 그래야 재귀적으로 조건을 확인해갔을 때, leaf node에 다다랐을 때, 정의가 만족되기 때문이다. 자연스럽게 노드가 노드가 하나 분인 것도 이진 트리 정의에 만족하게 된다.
+* Level(레벨) / height(높이)
+  * 트리에서 각 `층별로` 숫자를 매겨서 이를 트리의 Level(레벨)이라고 한다. 레벨의 값은 0부터 시작하고 따라서 루트 노드의 레벨은 0이다. 그리고 트리의 최고 레벨을 가리켜 해당 트리의 height(높이)라고 한다.
+* Perfect Binary Tree(포화 이진 트리), Complete Binary Tree(완전 이진 트리), Full Binary Tree (정 이진 트리)
+  * `Perfect Binary Tree(포화 이진 트리)`: 모든 레벨이 꽉 찬 이진 트리를 의미
+  * `Complete Binary Tree(완전 이진 트리)`: 위에서 아래로, 왼쪽에서 오른쪽으로 순서대로 차곡차곡 채워진 이진 트리를 가리켜 완전 이진 트리라고 한다.
+  * `Full Binary Tree (정 이진 트리)`: 모든 노드가 0개 혹은 2개의 자식 노드만을 갖는 이진 트리를 가리켜 정 이진 트리라고 한다.
+* 배열로 구성된 `Binary Tree`특징
+  * 노드의 개수가 n개이고, root가 0이 아닌 1에서 시작할 때, i번째 노드에 대해서 parent(i) = i/2. left_child(i) = 2i, right_child(i) = 2i+1 의 index값을 갖는다.
+
+### Binary Search Tree
+* 줄여서 `BST`
+* 효울적인 탐색을 위해서는 어떻게 찾을까만 고민해서는 안된다. 그보다는 효율적인 탐색을 위한 저장방법이 무엇일까를 고민해야 한다. 이진 탐색 트리는 이진 트리의 일종이다. 단 이진 탐색 트리에는 데이터를 저장하는 규칙이 있다. 그리고 그 규칙은 특정 데이터의 위치를 찾는데 사용할 수 있다.
+  * `규칙1`: 이진 탐색 트리의 노드에 저장된 키는 유일하다.
+  * `규칙2`: 부모의 키가 왼쪽 자식 노드의 키보다 크다.
+  * `규칙3`: 부모의 키가 오른쪽 자식 노드의 키보다 작다.
+  * `규칙4`: 왼쪽과 오른쪽 서브트리도 이진 탐색 트리이다.
+* 이진 탐색 트리의 탐색 연산은 O(logN)의 시간 복잡도를 가진다. 사실 정확히 말하면 O(h)라고 표현하는 것이 맞다. 트리의 높이를 하나씩 더해갈수록 추가할 수 있는 노드의 수가 두 배씩 증가하기 때문이다. 하지만 이러한 이진 탐색 트리는 SkewedTree(편향 트리)가 될 수 있다. 저장 순서에 따라 계속 한 쪽으로만 노드가 추가되는 경우가 발생하기 때문이다. 이럴 경우 성능에 영향을 미치게 되며, 탐색의 Worst Case가 되고, 시간 복잡도는 O(n)이 된다.
+* 배열보다 많은 메모리를 사용하며 데이터를 저장했지만 탐색에 필요한 시간 복잡도가 같게 되는 비효율적인 상황이 발생한다. 이를 해결하기 위해 `Rebalancing 기법`이 등장하였다. 균형을 잡기 위한 트리 구조의 재조정을 Rebalancing이라고 한다. 이 기법을 구현한 트리에는 여러 종류가 존재하는데 그 중에서 하나가 뒤에서 살펴볼 Red-Black Tree이다.
+  
 ### 그래프와 트리의 차이점
 <img src="./images/graph-vs-tree.png" width="70%" height="70%">
 
@@ -304,7 +328,10 @@ class Node {
 > - [03. Red-Black Tree delete, fix-up](https://github.com/namjunemy/TIL/blob/master/Algorithm/red_black_tree_03.md)
 
 ### B+ Tree
-
+* `B Tree`
+  * 
+* `B- Tree`
+* `B+ Tree`
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - []()
 
