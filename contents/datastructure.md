@@ -169,6 +169,10 @@
     * 수식의 괄호 검사 (연산자 우선순위 표현을 위한 괄호 검사)
       * Ex) 올바른 괄호 문자열(VPS, Valid Parenthesis String) 판단하기
     * 후위 표기법 계산
+* 수식의 표기법 - 전위수식(prefix), 후위수식(postfix), 중위수식(infix)
+  * 중위수식: 피연산자(숫자) 사이에 연산자(덧셈, 곱셈, 뺄셈, 나눗셈)가 있는 식을 중위식(Infix)라고 합니다. 우리가 보통 알고 있는 수식형태입니다. 하지만, 컴퓨터는 직관적으로 연산자의 우선순위에 따라 연산을 수행할 수 없으므로 연산자 우선순위에 따라 계산해주기 위해 Stack 자료구조를 사용하여 prefix, postfix와 같은 수식으로 변경하여 계산을 해줘야 합니다.
+  > - [[Stack] 전위수식(prefix), 후위수식(postfix), 중위수식(infix)](https://injunech.tistory.com/412)
+  > - [[연습하는데 직빵인 영상임] 전위표기법 후위표기법 구하기 (Prefix, Postfix)](https://www.youtube.com/watch?v=VZ3twasGCIA)
 
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [https://gmlwjd9405.github.io/2018/08/03/data-structure-stack.html](https://gmlwjd9405.github.io/2018/08/03/data-structure-stack.html)
