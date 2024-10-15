@@ -270,16 +270,29 @@ class Node {
 
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html](https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html)
+> - [트리(tree) 구조의 기본 개념과 용어들을 설명합니다~ 이진 트리(binary tree)의 형태에 따른 다양한 종류도 설명하니까요 기본 개념 잡고 싶으시면 도움되실 거에요 :)](https://www.youtube.com/watch?v=ohrwGtqeW-I)
 
 ### Binary Tree
+<img src="https://github.com/user-attachments/assets/cdb51efb-e1e6-4c9d-b60e-7535e5d6b7f3" width="500px">
+
 * 공집합(빈트리), 노드가 1개인 트리 => 모두 Binary Tree(이진 트리)!!
   * `WHY?` 루트 노드를 중심으로 두 개의 서브 트리(큰 트리에 속하는 작은 트리)로 나뉘어 진다. 또한 나뉘어진 두 서브 트리도 모두 이진 트리어야 한다. 재귀적인 정의라 맞는듯 하면서도 이해가 쉽지 않을 듯하다. 한 가지 덧붙이자면 공집합도 이진 트리로 포함시켜야 한다. 그래야 재귀적으로 조건을 확인해갔을 때, leaf node에 다다랐을 때, 정의가 만족되기 때문이다. 자연스럽게 노드가 노드가 하나 분인 것도 이진 트리 정의에 만족하게 된다.
 * Level(레벨) / height(높이)
   * 트리에서 각 `층별로` 숫자를 매겨서 이를 트리의 Level(레벨)이라고 한다. 레벨의 값은 0부터 시작하고 따라서 루트 노드의 레벨은 0이다. 그리고 트리의 최고 레벨을 가리켜 해당 트리의 height(높이)라고 한다.
 * Perfect Binary Tree(포화 이진 트리), Complete Binary Tree(완전 이진 트리), Full Binary Tree (정 이진 트리)
   * `Perfect Binary Tree(포화 이진 트리)`: 모든 레벨이 꽉 찬 이진 트리를 의미
+    <img src="https://github.com/user-attachments/assets/19d5fe74-054f-4f65-84df-65c276169dfd" width="500px">
   * `Complete Binary Tree(완전 이진 트리)`: 위에서 아래로, 왼쪽에서 오른쪽으로 순서대로 차곡차곡 채워진 이진 트리를 가리켜 완전 이진 트리라고 한다.
+    <img src="https://github.com/user-attachments/assets/5d21ca87-c7e6-416c-9911-61712bbb4407" width="500px">
   * `Full Binary Tree (정 이진 트리)`: 모든 노드가 0개 혹은 2개의 자식 노드만을 갖는 이진 트리를 가리켜 정 이진 트리라고 한다.
+    <img src="https://github.com/user-attachments/assets/31fcb821-a0aa-4c9a-ada7-19c479bb0d06" width="500px">
+  * `Degenerate Binary Tree(변질 이진 트리)`
+    <img src="https://github.com/user-attachments/assets/c4c4ad04-f0dc-404e-a971-e9d3146c6290" width="500px">
+    * `Left Skewed Binary Tree`: 모든 부모 노드는 왼쪽 자녀 노드만 가지는 트리
+    * `Right Skewed Binary Tree`: 모든 부모 노드는 오른쪽 자녀 노드만 가지는 트리
+  * `Balanced Binary Tree(균형 이진 트리)` => 모든 노드를 다 확인해봐야함!
+    * 참고로 연결된 자식이 없으면 서브트리의 높이는 `-1`로 간주
+    <img src="https://github.com/user-attachments/assets/d22fd165-be4a-45f0-9a99-ba05e71e1c44" width="500px">
 * 배열로 구성된 `Binary Tree`특징
   * 노드의 개수가 n개이고, root가 0이 아닌 1에서 시작할 때, i번째 노드에 대해서 parent(i) = i/2. left_child(i) = 2i, right_child(i) = 2i+1 의 index값을 갖는다.
 
