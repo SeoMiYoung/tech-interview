@@ -303,9 +303,12 @@ class Node {
   * `규칙2`: 부모의 키가 왼쪽 자식 노드의 키보다 크다.
   * `규칙3`: 부모의 키가 오른쪽 자식 노드의 키보다 작다.
   * `규칙4`: 왼쪽과 오른쪽 서브트리도 이진 탐색 트리이다.
-* 이진 탐색 트리의 탐색 연산은 O(logN)의 시간 복잡도를 가진다. 사실 정확히 말하면 O(h)라고 표현하는 것이 맞다. 트리의 높이를 하나씩 더해갈수록 추가할 수 있는 노드의 수가 두 배씩 증가하기 때문이다. 하지만 이러한 이진 탐색 트리는 SkewedTree(편향 트리)가 될 수 있다. 저장 순서에 따라 계속 한 쪽으로만 노드가 추가되는 경우가 발생하기 때문이다. 이럴 경우 성능에 영향을 미치게 되며, 탐색의 Worst Case가 되고, 시간 복잡도는 O(n)이 된다.
+* 이진 탐색 트리의 탐색 연산은 `O(logN)의 시간 복잡도`를 가진다. 사실 정확히 말하면 O(h)라고 표현하는 것이 맞다. 트리의 높이를 하나씩 더해갈수록 추가할 수 있는 노드의 수가 두 배씩 증가하기 때문이다. 하지만 이러한 이진 탐색 트리는 SkewedTree(편향 트리)가 될 수 있다. 저장 순서에 따라 계속 한 쪽으로만 노드가 추가되는 경우가 발생하기 때문이다. 이럴 경우 성능에 영향을 미치게 되며, 탐색의 Worst Case가 되고, 시간 복잡도는 O(n)이 된다.
 * 배열보다 많은 메모리를 사용하며 데이터를 저장했지만 탐색에 필요한 시간 복잡도가 같게 되는 비효율적인 상황이 발생한다. 이를 해결하기 위해 `Rebalancing 기법`이 등장하였다. 균형을 잡기 위한 트리 구조의 재조정을 Rebalancing이라고 한다. 이 기법을 구현한 트리에는 여러 종류가 존재하는데 그 중에서 하나가 뒤에서 살펴볼 Red-Black Tree이다.
-  
+
+> :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
+> - [이진탐색트리(binary search tree)를 설명합니다~ 기본 개념과 트리를 순회하는 여러 방법, 이진탐색트리의 삽입/삭제/검색이 어떻게 동작하는지 예를 통해 설명드려요 :)](https://www.youtube.com/watch?v=i57ZGhOVPcI)
+
 ### 그래프와 트리의 차이점
 <img src="./images/graph-vs-tree.png" width="70%" height="70%">
 
@@ -341,12 +344,23 @@ class Node {
 > - [03. Red-Black Tree delete, fix-up](https://github.com/namjunemy/TIL/blob/master/Algorithm/red_black_tree_03.md)
 
 ### B+ Tree
-* `B Tree`
-  * 
+* `B Tree` => `자녀 노드의 최대 개수를 입맛에 맞게 결정해서 쓸 수 있다!!!`
+  * 만약에 단 2개가 아니라 3개를 저장하고 싶다면..?
+    ![image](https://github.com/user-attachments/assets/a3a5499d-ee7b-4eaf-a35b-356008b51b20)
+    1. 자녀 노드의 최대 개수를 늘리기 위해서, 부모 노드에 key를 하나 이상 저장한다.
+    2. 부모 노드의 key들을 오름차순으로 정렬한다.
+    3. 정렬된 순서에 따라 자녀 노드들의 key값의 범위가 결정된다.
+  * 파라미터
+    ![image](https://github.com/user-attachments/assets/36c7945d-e577-44dc-a252-9c3ef1f71eaa)
+  * `B tree 데이터 삽입 예제` --> 유튭 영상 참고
+  * 특징
+    * 모든 leaf 노드들은 같은 레벨에 있다
+    * => balanced tree이고, 검색 avg case/wort case 모두 시간 복잡도가 O(logN)이므로 조회할때 항상 일정한 성능을 낸다~ good!!
 * `B- Tree`
 * `B+ Tree`
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
-> - []()
+> - [(1부) B tree의 개념과 특징, 데이터 삽입이 어떻게 동작하는지를 설명합니다! (DB 인덱스과 관련있는 자료 구조)](https://www.youtube.com/watch?v=bqkcoSm_rCs)
+> - [(2부) B tree 데이터 삭제 동작 방식을 설명합니다 (DB 인덱스과 관련있는 자료 구조)](https://www.youtube.com/watch?v=H_u28u0usjA)
 
 ---
 
