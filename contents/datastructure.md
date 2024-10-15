@@ -12,7 +12,7 @@
 * [그래프(Graph)와 트리(Tree)의 차이점](#그래프와-트리의-차이점)
 * [Binary Heap](#binary-heap)
 * [Red-Black Tree](#red-black-tree)
-* [B+ Tree](#B+-Tree)
+* [B+ Tree](#b-tree)
 
 ---
 
