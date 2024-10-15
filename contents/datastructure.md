@@ -352,7 +352,9 @@ class Node {
     3. 정렬된 순서에 따라 자녀 노드들의 key값의 범위가 결정된다.
   * 파라미터
     ![image](https://github.com/user-attachments/assets/36c7945d-e577-44dc-a252-9c3ef1f71eaa)
-  * `B tree 데이터 삽입 예제` --> 유튭 영상 참고
+  * 삽입/삭제: 모두 `leaf노드부터` 시작된다!!!
+    * `B tree 데이터 삽입 예제` --> 유튭 영상 참고
+    * `B tree 데이터 삭제 예제` --> 유튭 영상 참고
   * 특징
     * 모든 leaf 노드들은 같은 레벨에 있다
     * => balanced tree이고, 검색 avg case/wort case 모두 시간 복잡도가 O(logN)이므로 조회할때 항상 일정한 성능을 낸다~ good!!
