@@ -305,6 +305,7 @@ class Node {
   * `규칙4`: 왼쪽과 오른쪽 서브트리도 이진 탐색 트리이다.
 * 이진 탐색 트리의 탐색 연산은 `O(logN)의 시간 복잡도`를 가진다. 사실 정확히 말하면 O(h)라고 표현하는 것이 맞다. 트리의 높이를 하나씩 더해갈수록 추가할 수 있는 노드의 수가 두 배씩 증가하기 때문이다. 하지만 이러한 이진 탐색 트리는 SkewedTree(편향 트리)가 될 수 있다. 저장 순서에 따라 계속 한 쪽으로만 노드가 추가되는 경우가 발생하기 때문이다. 이럴 경우 성능에 영향을 미치게 되며, 탐색의 Worst Case가 되고, 시간 복잡도는 O(n)이 된다.
 * 배열보다 많은 메모리를 사용하며 데이터를 저장했지만 탐색에 필요한 시간 복잡도가 같게 되는 비효율적인 상황이 발생한다. 이를 해결하기 위해 `Rebalancing 기법`이 등장하였다. 균형을 잡기 위한 트리 구조의 재조정을 Rebalancing이라고 한다. 이 기법을 구현한 트리에는 여러 종류가 존재하는데 그 중에서 하나가 뒤에서 살펴볼 Red-Black Tree이다.
+  * BST는 자녀 노드를 최대 2개만 가질 수 있는 트리입니다. 그러면 각각의 노드에서 KEY는 하나만 가질 수 있습니다. BST는 상황에 따라서 한쪽으로 기울여지는 형태, 즉 편향 트리 형태가 될 수 있습니다. 그런 형태일때 시간 복잡도는 O(N)형태가 됩니다. => 그러면 성능이 안좋아지니깐, 이 부분을 보완하기 위해서, 스스로 균형을 맞추는 Binary Search Tree가 등장하게 됩니다. 대표적인 2가지가 `AVL`하고, `Red-Black Tree`입니다.
 
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [이진탐색트리(binary search tree)를 설명합니다~ 기본 개념과 트리를 순회하는 여러 방법, 이진탐색트리의 삽입/삭제/검색이 어떻게 동작하는지 예를 통해 설명드려요 :)](https://www.youtube.com/watch?v=i57ZGhOVPcI)
@@ -353,7 +354,7 @@ class Node {
     3. 정렬된 순서에 따라 자녀 노드들의 key값의 범위가 결정된다.
   * 파라미터
     ![image](https://github.com/user-attachments/assets/36c7945d-e577-44dc-a252-9c3ef1f71eaa)
-  * 삽입/삭제: 모두 `leaf노드부터` 시작된다!!!
+  * 삽입/삭제: 모두 `leaf노드`에서 이루어진다!!!
     * `B tree 데이터 삽입 예제` --> 유튭 영상 참고
     * `B tree 데이터 삭제 예제` --> 유튭 영상 참고
   * 특징
@@ -367,14 +368,24 @@ class Node {
   1. 데이터는 오직 리프 노드에만 저장
   2. 내부 노드는 인덱스 역할만 함
   3. 리프 노드들이 연결 리스트로 연결됨
+* `B* Tree`
+  * `B-`나 `B+`에 비해 노드 분할과 병합 연산이 덜 빈번하게 발생 -> 공간 활용도가 높음 & 검색 성능 높음!
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [(1부) B tree의 개념과 특징, 데이터 삽입이 어떻게 동작하는지를 설명합니다! (DB 인덱스과 관련있는 자료 구조)](https://www.youtube.com/watch?v=bqkcoSm_rCs)
 > - [(2부) B tree 데이터 삭제 동작 방식을 설명합니다 (DB 인덱스과 관련있는 자료 구조)](https://www.youtube.com/watch?v=H_u28u0usjA)
+> - [(3부) B tree가 왜 DB 인덱스(index)로 사용되는지를 설명합니다](https://www.youtube.com/watch?v=liPSnc6Wzfk)
 
 ---
 
 ## Reference
 > - []()
 
+## 추가로 다뤄볼 주제들..
+- Red Black Tree
+- AVL
+- Minimum Spanning Tree
+  - Kruskal Algorithm
+  - Prim Algorithm
+- Array vs Linked List
 
 ## :house: [Home](https://github.com/WeareSoft/tech-interview)
