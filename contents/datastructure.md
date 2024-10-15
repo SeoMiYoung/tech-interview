@@ -271,9 +271,26 @@ class Node {
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 
 ### Binary Heap
-
+* 우선순위 큐(Priority Queue)
+  ![image](https://github.com/user-attachments/assets/d7ad16f0-de89-48bd-bbaa-28f212cb2386)
+  * 우선순위 큐는 우선순위가 가장 높은 데이터를 가장 먼저 삭제하는 자료구조입니다.
+  * 우선순위 큐는 데이터를 우선순위에 따라 처리하고 싶을 때 사용합니다.
+    * ex. 물건 데이터를 자료구조에 넣었다가 가치가 높은 물건부터 꺼내서 확인해야 하는 경우
+  * 우선순위 큐를 구현하는 방법 2가지
+    * 1. 단순히 리스트 사용 => 삽입: O(1) / 삭제: O(N)
+      2. `힙(heap)을 이용하여 구현` => 삽입: O(logN) / 삭제: O(logN)
+  * 사용
+    * 프로세스 스케줄링(process scheduling)
+    * heap sort => 정렬 시, 힙에서 차례대로 꺼내면 알아서 정렬되니깐!!
+* Heap
+  * 힙은 `완전 이진 트리(마지막 레벨에서 왼쪽부터 꽉꽉 채운)` 자료구조의 일종입니다.
+  * 힙에서는 항상 루트 노드(root node)를 제거합니다.
+    * `최소 힙`: 루트 노드가 가장 작은 값을 가짐, 가장 작은 데이터가 우선적으로 제거됨
+    * `최대 힙`: 루트 노드가 가장 큰 값을 가짐, 가장 큰 데이터가 우선적으로 제거됨
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
-> - [https://gmlwjd9405.github.io/2018/05/10/data-structure-heap.html](https://gmlwjd9405.github.io/2018/05/10/data-structure-heap.html)
+> - [힙(heap)이란](https://gmlwjd9405.github.io/2018/05/10/data-structure-heap.html)
+> - [자료구조: 우선순위 큐(Priority Queue)와 힙(Heap)](https://www.youtube.com/watch?v=AjFlp951nz0)
+> - [우선순위 큐와 힙의 개념과 차이, 사용 사례를 설명합니다! 힙이 어떻게 동작하는지도 예를 통해 자세히 설명합니다!](https://www.youtube.com/watch?v=P-FTb1faxlo)
 
 ### Red-Black Tree
 
