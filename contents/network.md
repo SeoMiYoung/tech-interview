@@ -114,11 +114,24 @@
 
 ### TCP와 UDP
 * 네트워크 계층 중 **전송 계층에서 사용하는 프로토콜**
-* TCP(Transmission Control Protocol)  
+* `TCP(Transmission Control Protocol)`  
     <img src="./images/tcp-virtual-circuit.png" width="60%" height="60%">
     * 인터넷 상에서 데이터를 메세지의 형태(**세그먼트** 라는 블록 단위)로 보내기 위해 IP와 함께 사용하는 프로토콜이다.
     * TCP와 IP를 함께 사용하는데, IP가 데이터의 배달을 처리한다면 TCP는 패킷을 추적 및 관리한다.
+      1. IP(Internet Protocol)
+         * 데이터의 배달을 담당합니다.
+         * 패킷의 주소 지정과 라우팅을 처리합니다.
+         * 최선의 노력으로 패킷을 전달하지만, 신뢰성은 보장하지 않습니다.
+      2. TCP(Transmission Control Protocol)
+         * IP 위에서 동작하며, 신뢰성 있는 데이터 전송을 담당합니다.
+         * 패킷을 추적하고 관리합니다.
+           * 패킷의 순서를 유지합니다.
+           * 손실된 패킷을 재전송합니다.
+           * 중복된 패킷을 제거합니다.
+         * 흐름제어와 혼잡제어를 수행합니다.
+     => 즉, IP가 데이터를 목적지로 전송하는 역할을 한다면, TCP는 그 데이터가 올바르게, 순서대로, 그리고 완전하게 전달되도록 관리하는 역할을 합니다. 이 두 프로토콜이 함께 작동하여 인터넷 통신의 기반을 형성합니다. 
     * **연결형 서비스로** 가상 회선 방식을 제공한다.
+        * `연결형 서비스란?` 연결형 서비스는 데이터를 전송하기 전에 송신자와 수신자 간의 논리적인 연결을 먼저 설정하고, 데이터 전송이 끝나면 연결을 종료하는 방식의 서비스입니다. 이 과정에서 데이터의 신뢰성 있는 전송을 보장하며, 오류 제어와 흐름 제어를 수행합니다.
         * 3-way handshaking과정을 통해 연결을 설정하고, 4-way handshaking을 통해 연결을 해제한다.
     * 흐름제어 및 혼잡제어를 제공한다.
         * 흐름제어
@@ -131,14 +144,20 @@
     * UDP보다 속도가 느리다.
     * 전이중(Full-Duplex), 점대점(Point to Point) 방식이다.
         * 전이중
-            * 전송이 양방향으로 동시에 일어날 수 있다.
+            * 전송이 `양방향`으로 동시에 일어날 수 있다.
         * 점대점
             * 각 연결이 정확히 2개의 종단점을 가지고 있다.
+            * TCP는 네트워크 상의 두 지점 간에 직접적이고 전용적인 논리적 연결을 설정하여, 통신하는 방식을 사용합니다. 이는 데이터가 특정 송신자에서 특정 수신자로 직접 전송되며, 중간에 다른 노드를 거치지 않고, 양 끝점 간에 신뢰성 있는 통신을 보장합니다. => 약간 배민에서 한집배달 느낌 ㅋㅋ
         * 멀티캐스팅이나 브로드캐스팅을 지원하지 않는다.
+          * TCP는 오직 두 지점 간의 일대일 통신만을 지원하도록 설계되어 있어, 하나의 송신자가 여러 수신자에게 동시에 데이터를 보내는 멀티태스킹이나 네트워크 상의 모든 기기에 데이터를 보내는 브로드캐스팅과 같은 일대다 통신 방식을 직접적으로 구현할 수 없습니다.
     * 연속성보다 신뢰성있는 전송이 중요할 때에 사용된다.
-* UDP(User Datagram Protocol)  
+    * 프로토콜 헤더는 기본적으로 `20~60 Byte`
+    * 패킷 단위의 스트림 위주 전달
+      * TCP는 데이터를 연속적인 바이트 스트림으로 취급하지만, 실제 전송 시에는 이를 적절한 크기의 패킷(세그먼트)로 나누어 순서대로 전송합니다. 수신 측에서는 이 패킷들을 다시 원래의 연속적인 데이터 스트림으로 재구성합니다.
+* `UDP(User Datagram Protocol)`  
     <img src="./images/udp-datagram.png" width="60%" height="60%">
     * 데이터를 **데이터그램** 단위로 처리하는 프로토콜이다.
+      * 세그먼트는 TCP에서 사용하는 연속적인 데이터 스트림의 일부로, 순서가 있고 신뢰성 있는 전송을 보장하는 반면, 데이터그램은 UDP에서 사용되는 독립적인 메시지 단위로, 순서나 신뢰성이 보장되지 않지만 빠른 전송이 가능합니다.
     * **비연결형 서비스로** 데이터그램 방식을 제공한다.
         * 연결을 위해 할당되는 논리적인 경로가 없다.
         * 그렇기 때문에 각각의 패킷은 다른 경로로 전송되고, 각각의 패킷은 독립적인 관계를 지니게 된다.
@@ -150,8 +169,20 @@
     * 신뢰성보다는 연속성이 중요한 서비스, 예를 들면 실시간 서비스(streaming)에 사용된다.
 * 참고
   * UDP와 TCP는 각각 별도의 포트 주소 공간을 관리하므로 같은 포트 번호를 사용해도 무방하다. 즉, 두 프로토콜에서 동일한 포트 번호를 할당해도 서로 다른 포트로 간주한다.
+    * ex. UDP와 TCP의 독립적인 포트 사용
+      예를 들어, 한 컴퓨터에서 다음과 같이 서비스를 운영할 수 있습니다.
+      * TCP 80번 포트: 웹 서버 (HTTP)
+      * UDP 80번 포트: 게임 서버<br/>
+      
+      => 이 경우, 두 서비스는 같은 포트 번호(80)를 사용하지만, 서로 다른 프로토콜(TCP와 UDP)를 사용하기 때문에 충돌 없이 동작합니다.
   * 또한 같은 모듈(UDP or TCP) 내에서도 클라이언트 프로그램에서 동시에 여러 커넥션을 확립한 경우에는 서로 다른 포트 번호를 동적으로 할당한다. (동적할당에 사용되는 포트번호는 49,152~65,535이다.)
-
+    * ex. 클라이언트의 동적 포트 할당
+      웹 브라우저로 여러 웹사이트에 동시 접속하는 상황을 가정해보겠습니다.
+      * 브라우저가 `www.example1.com`에 접속: 운영체제가 TCP 50001번 포트를 할당
+      * 동시에 `www.example2.com`에 접속: 운영체제가 TCP 50002번 포트를 할당
+      * 또 다른 탭에서 `www.example3.com`에 접속: 운영체제가 TCP 50003번 포트를 할당<br/>
+      
+      => 이렇게 하나의 프로그램(웹 브라우저)이 여러 연결을 만들 때, 운영체제는 각 연결에 대해 서로 다른 임시 포트 번호를 동적으로 할당합니다. 이를 통해 각 연결을 구분하고 데이터를 올바르게 라우팅할 수 있습니다. 
 > :arrow_double_up:[Top](#2-network)    :leftwards_arrow_with_hook:[Back](https://github.com/Do-Hee/tech-interview#2-network)    :information_source:[Home](https://github.com/Do-Hee/tech-interview#tech-interview)
 > - [http://mangkyu.tistory.com/15](http://mangkyu.tistory.com/15)
 > - [http://ddooooki.tistory.com/21](http://ddooooki.tistory.com/21)
@@ -203,6 +234,7 @@
 > - [TCP 와 UDP [동작원리/헤더/차이점]](https://m.blog.naver.com/PostView.nhn?blogId=minki0127&logNo=220804490550&proxyReferer=https:%2F%2Fwww.google.com%2F)
 > - [https://idchowto.com/?p=18352](https://idchowto.com/?p=18352)
 > - [https://m.blog.naver.com/PostView.nhn?blogId=koromoon&logNo=120162515270&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F](https://m.blog.naver.com/PostView.nhn?blogId=koromoon&logNo=120162515270&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F)
+> - [TCP 헤더 이렇게 외워볼까](https://www.youtube.com/watch?v=j6jN0QjHk_Y)
 
 ### TCP의 3 way handshake와 4 way handshake
 * TCP는 장치들 사이에 논리적인 접속을 성립(establish)하기 위하여 연결을 설정하여 **신뢰성을 보장하는 연결형 서비스** 이다.
