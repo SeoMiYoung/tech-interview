@@ -544,6 +544,9 @@
 > - [HTTP 동작 과정](https://jess-m.tistory.com/17)
 > - [HTTP 메시지](https://developer.mozilla.org/ko/docs/Web/HTTP/Messages)
 > - [HTTPS와 SSL 인증서](https://opentutorials.org/course/228/4894)
+> - [HTTPS가 뭐고 왜 쓰나요? (Feat. 대칭키 vs. 비대칭키)](https://www.youtube.com/watch?v=H6lpFRpyl14)
+> - [암호학1 - 4.1. 양방향 암호화 - 비대칭키(공개키 방식) - 기밀성을 위해서 사용하기암호학1 - 4.1. 양방향 암호화 - 비대칭키(공개키 방식) - 기밀성을 위해서 사용하기](https://www.youtube.com/watch?v=MR4sCU82tgo)
+> - [암호법1 - 4.2. 양방향 암호화 - 비대칭키(공개키) - 전자 서명하는 방법 (이벤트는 본문을 참고해주세요!)](https://www.youtube.com/watch?v=O7SiDuTCysM)
 
 ### CORS란 
 - CORS(Cross Origin Resource Sharing)란 
