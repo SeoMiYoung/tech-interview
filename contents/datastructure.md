@@ -1,6 +1,6 @@
 # 1. Data Structure
 **:book: Contents**
-* [Array](#array)
+* [Array](#☑️-array)
 * [LinkedList](#linkedlist)
 * [HashTable](#hashtable)
 * [Stack](#stack)
