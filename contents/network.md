@@ -238,6 +238,9 @@
 > - [TCP 헤더 이렇게 외워볼까](https://www.youtube.com/watch?v=j6jN0QjHk_Y)
 
 ### TCP의 3 way handshake와 4 way handshake
+![image](https://github.com/user-attachments/assets/96c2221c-1b8f-4b41-97f3-8db14deceec1)
+![image](https://github.com/user-attachments/assets/30e0b0e8-8b18-4acf-80b2-9f987a434f8e)
+
 * TCP는 장치들 사이에 논리적인 접속을 성립(establish)하기 위하여 연결을 설정하여 **신뢰성을 보장하는 연결형 서비스** 이다.
 * 3-way handshake 란
   * TCP 통신을 이용하여 데이터를 전송하기 위해 네트워크 **연결을 설정(Connection Establish)** 하는 과정
@@ -321,6 +324,7 @@
             - 클라이언트가 요청을 서버에 보내고 서버가 적절한 응답을 클라이언트에 보내면 바로 연결이 끊긴다.
         - 2) 무상태(Stateless)
             - 연결을 끊는 순간 클라이언트와 서버의 통신은 끝나며 상태 정보를 유지하지 않는다.
+            - 각각의 클라이언트 요청에 대한 상태 정보(ex. 로그인 상태, 장바구니 내용, 이전 페이지 방문기록 등)를 서버가 유지하지 않는다는 의미입니다. 간단히 말해서, 서버는 이전 요청과 현재 요청을 연결짓지 않습니다. 만약 HTTP가 "state"하다면 매우 복잡해집니다. 그러나, 상황에 따라서 상태를 유지해야되는 경우가 있는데요, 그런 경우에는 쿠키나 세션을 사용하여 상태정보를 클라이언트와 서버간에 주고 받을 수 있습니다. 
 - HTTPS 프로토콜 
     - 개념 
         - HyperText Transfer Protocol over Secure Socket Layer
@@ -330,6 +334,13 @@
         - HTTPS의 기본 TCP/IP 포트로 **443번 포트**를 사용한다.
         - HTTPS는 소켓 통신에서 일반 텍스트를 이용하는 대신에, 웹 상에서 정보를 암호화하는 SSL이나 TLS 프로토콜을 통해 세션 데이터를 암호화한다. 
             - TLS(Transport Layer Security) 프로토콜은 SSL(Secure Socket Layer) 프로토콜에서 발전한 것이다.
+              - SSL(Secure Socket Layer)
+                - 웹 브라우저 <-> 서버 간 안전한 데이터 전송 목적
+                - https로 시작
+                - 443번 포트 사용
+              - TLS (Transport Layer Security)
+                - 인터넷 커뮤니케이션을 위한 개인 정보와 데이터 무결성을 제공하는 보안 프로토콜
+                - SSL의 개선 버전
             - 두 프로토콜의 주요 목표는 기밀성(사생활 보호), 데이터 무결성, ID 및 디지털 인증서를 사용한 인증을 제공하는 것이다.
         - 따라서 데이터의 적절한 보호를 보장한다. 
             - 보호의 수준은 웹 브라우저에서의 구현 정확도와 서버 소프트웨어, 지원하는 암호화 알고리즘에 달려있다.
@@ -689,7 +700,22 @@
 > - [https://doooyeon.github.io/2018/09/10/cookie-and-session.html](https://doooyeon.github.io/2018/09/10/cookie-and-session.html)
 
 ### DNS
+* DNS가 왜 필요할까?
+  * 호스트를 식별하려면, `IP주소`와 `호스트 네임`이 있습니다. 사람의 경우 호스트 네임이 더 편하지만, 컴퓨터의 입장에서는 호스트 네임으로 정보를 식별하기가 쉽지 않습니다. 따라서 호스트 네임을 IP주소로 변환해주는 서비스가 필요한데, 그게 바로 DNS입니다.
+  * ex. 사용자가 `www.google.com/index.html`을 요청 --> 브라우저는 DNS 클라이언트에게 호스트 네임을 추출한 `www.google.com`을 넘겨줌 --> DNS 클라이언트가 DNS서버에게 질의를 보낸다 --> DNS클라이언트는 DNS서버로부터 해당 호스트 네임에 대한 IP주소를 받음 --> 브라우저는 IP주소와 IP주소의 80번 포트인 HTTP서버와 연결을 시도 --> 이제 클라이언트는 클라이언트(브라우저)와 서버간에 신뢰성있는 통신 경로가 확립되고, 서버에게 HTTP요청을 보낼 수 있게 되었음
 
+* DNS 서버란?
+  * 사용자가 호스트 네임을 넘겨주면, 데이터베이스를 기반으로 대응하는 IP주소를 찾아 넘겨주는 역할을 합니다. 전 세계에 분산되어있으며, 계층구조로 되어있습니다. 호스트 이름과 IP주소의 대응관계를 저장하고 있는 DB시스템입니다.
+ 
+* DNS의 계층적 구조 3단계
+  * 만약에 어떤 클라이언트가 `www.amazon.com`의 IP주소를 알고 싶다고 가정합시다.
+    * 1) 클라이언트는 루트 서버중 하나에 접속합니다. 루트 DNS 서버는 전 세계에 약 13개 있습니다. 이들은 루트 DNS서버의 여러 복제본입니다. 이러한 복제본은 다양한 위치에 있습니다. 클라이언트가 루트 DNS서버에 연결하려고 할 때, 가장 가까운 루트 DNS서버 중 하나에 연결하게 됩니다. 
+      2) 루트 서버는 `com`으로 끝나니깐 `com`과 관련된 TLD(Top Level Domain) 서버 IP주소를 반환해줍니다.
+      3) 클라이언트는 TLD서버에 접속합니다.
+      4) TLD 서버는 `amazon.com`을 가지는 책임 DNS서버의 IP주소를 반환해줍니다.
+      5) 마지막으로 클라이언트는 책임 DNS 서버에 접속하여 `www.amazon.com`의 IP주소를 얻게 됩니다.
+  * TLD 서버: 보통 com, org, net, edu, kr, uk 등 기업, 기관, 대학, 각 나라를 대표하는 도메인 서버
+  * 책임 서버: 기관이 실질적으로 DNS를 가지고 있는 곳으로 정확한 이름의 IP주소가 매핑된 곳이고, 그 주소로 접근할 권한을 갖는다. 따라서 권한 서버라고도 한다.
 > :arrow_double_up:[Top](#2-network)    :leftwards_arrow_with_hook:[Back](https://github.com/Do-Hee/tech-interview#2-network)    :information_source:[Home](https://github.com/Do-Hee/tech-interview#tech-interview)
 > - []()
 
