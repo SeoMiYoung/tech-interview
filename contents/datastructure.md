@@ -16,7 +16,7 @@
 
 ---
 
-### Array
+### ☑️ Array
 가장 기본적인 자료구조인 `Array`자료구조는, 논리적 저장 순서와 물리적 저장 순서가 일치한다. 따라서 `인덱스`(index)로 해당 원소(element)에 접근할 수 있다. 그렇기 때문에 찾고자 하는 원소의 인덱스 값을 알고 있으면 `Big-O(1)`에 해당 원소로 접근할 수 있다. 즉 random access가 가능하다는 장점이 있는 것이다. 
 
 하지만 삭제 또는 삽입의 과정에서는 해당 원소에 접근하여 작업을 완료한 뒤 (O(1)), 또 한 가지의 작업을 추가적으로 해줘야 하기 때문에, 시간이 더 걸린다. 만약 배열의 원소 중 어느 원소를 삭제했다고 했을 때, 배열의 연속적인 특징이 깨지게 된다. 즉 빈 공간이 생기는 것이다. 따라서 삭제한 원소보다 큰 인덱스를 갖는 원소들을 `shift`해줘야 하는 비용(cost)가 발생하고, 이 경우의 시간 복잡도는 O(n)이 된다. 그렇기 때문에 Array 자료구조에서 삭제 기능에 대한 time complexity 의 worst case는 O(n)이 된다.
@@ -26,7 +26,7 @@
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - []()
 
-### LinkedList
+### ☑️ LinkedList
 이 부분에 대한 문제점을 해결하기 위한 자료구조가 linked list이다. 각각의 원소들은 자기 자신 다음에 어떤 원소인지만을 기억하고 있다. 따라서 이 부분만 다른 값으로 바꿔주면 삭제와 삽입을 O(1)만에 해결할 수 있는 것이다.
 
 하지만 Linked List 역시 한 가지 문제가 있다. 원하는 위치에 삽입을 하고자 하면 원하는 위치를 Search 과정에 있어서 첫번째 원소부터 다 확인해봐야 한다는 것이다. Array 와 달리 논리적 저장 순서와 물리적 저장 순서가 일치하지 않기 때문이다. 이것은 일단 삽입하고 정렬하는 것과 마찬가지이다. 이 과정 때문에, 어떠한 원소를 삭제 또는 추가하고자 했을 때, 그 원소를 찾기 위해서 O(n)의 시간이 추가적으로 발생하게 된다.
@@ -36,7 +36,7 @@
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - []()
 
-### HashTable
+### ☑️ HashTable
 
 * HashTable 개념
   * Key와 Value를 1:1로 연관지어 저장하는 자료구조 (연관배열 구조)
@@ -155,7 +155,7 @@
 > - [[자료구조] Hash/HashTable/HashMap](https://hee96-story.tistory.com/48)
 > - [[자료구조] 도움많이되는 유튭 영상](https://www.youtube.com/watch?v=ZBu_slSH5Sk)
 
-### Stack
+### ☑️ Stack
 * 스택(Stack)의 개념
     * 약간 엘레베이터 구조라고 이해하면 될 듯 => 엘레베이터 먼저 탄 사람이 가장 구석으로 들어가니깐, 마지막에 들어온 사람이 결국 가장 먼저 내림
       * [암기] 스엘 (스택 엘레베이터)
@@ -190,7 +190,7 @@
 > - [https://gmlwjd9405.github.io/2018/08/03/data-structure-stack.html](https://gmlwjd9405.github.io/2018/08/03/data-structure-stack.html)
 > - [스택 유튜브 설명](https://www.youtube.com/watch?v=ELEoJHiqlF4)
 
-### Queue
+### ☑️ Queue
 * 큐(Queue)의 개념
   * 컴퓨터의 기본적인 자료 구조의 한가지로, 먼저 집어 넣은 데이터가 먼저 나오는 FIFO(First In First Out)구조로 저장하는 형식 => 그래서 `순서를 보장`함
 * 큐(Queue)의 연산
@@ -219,7 +219,7 @@
 > - [https://gmlwjd9405.github.io/2018/08/02/data-structure-queue.html](https://gmlwjd9405.github.io/2018/08/02/data-structure-queue.html)
 > - [큐 유튜브 설명](https://www.youtube.com/watch?v=ZZw6remsJNo)
 
-### Graph
+### ☑️ Graph
 * 그래프(Graph)의 개념
   * 단순히 노드(N, node)와 그 노드를 연결하는 간선(E, edge)을 하나로 모아 놓은 자료 구조
     * 즉, 연결되어 있는 객체 간의 관계를 표현할 수 있는 자료 구조이다.
@@ -242,7 +242,7 @@
 > - [https://gmlwjd9405.github.io/2018/08/13/data-structure-graph.html](https://gmlwjd9405.github.io/2018/08/13/data-structure-graph.html)
 > - [https://ttl-blog.tistory.com/954](https://ttl-blog.tistory.com/954)
 
-### Tree
+### ☑️ Tree
 * 트리(Tree)의 개념
   * 트리는 노드로 이루어진 자료 구조
     1. 트리는 하나의 루트 노드를 갖는다.
@@ -282,7 +282,7 @@ class Node {
 > - [https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html](https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html)
 > - [트리(tree) 구조의 기본 개념과 용어들을 설명합니다~ 이진 트리(binary tree)의 형태에 따른 다양한 종류도 설명하니까요 기본 개념 잡고 싶으시면 도움되실 거에요 :)](https://www.youtube.com/watch?v=ohrwGtqeW-I)
 
-### Binary Tree
+### ☑️ Binary Tree
 <img src="https://github.com/user-attachments/assets/cdb51efb-e1e6-4c9d-b60e-7535e5d6b7f3" width="500px">
 
 * 공집합(빈트리), 노드가 1개인 트리 => 모두 Binary Tree(이진 트리)!!
@@ -306,7 +306,7 @@ class Node {
 * 배열로 구성된 `Binary Tree`특징
   * 노드의 개수가 n개이고, root가 0이 아닌 1에서 시작할 때, i번째 노드에 대해서 parent(i) = i/2. left_child(i) = 2i, right_child(i) = 2i+1 의 index값을 갖는다.
 
-### Binary Search Tree
+### ☑️ Binary Search Tree
 * 줄여서 `BST`
 * 효울적인 탐색을 위해서는 어떻게 찾을까만 고민해서는 안된다. 그보다는 효율적인 탐색을 위한 저장방법이 무엇일까를 고민해야 한다. 이진 탐색 트리는 이진 트리의 일종이다. 단 이진 탐색 트리에는 데이터를 저장하는 규칙이 있다. 그리고 그 규칙은 특정 데이터의 위치를 찾는데 사용할 수 있다.
   * `규칙1`: 이진 탐색 트리의 노드에 저장된 키는 유일하다.
@@ -320,12 +320,12 @@ class Node {
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [이진탐색트리(binary search tree)를 설명합니다~ 기본 개념과 트리를 순회하는 여러 방법, 이진탐색트리의 삽입/삭제/검색이 어떻게 동작하는지 예를 통해 설명드려요 :)](https://www.youtube.com/watch?v=i57ZGhOVPcI)
 
-### 그래프와 트리의 차이점
+### ☑️ 그래프와 트리의 차이점
 <img src="./images/graph-vs-tree.png" width="70%" height="70%">
 
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 
-### Binary Heap
+### ☑️ Binary Heap
 * 우선순위 큐(Priority Queue)
   ![image](https://github.com/user-attachments/assets/d7ad16f0-de89-48bd-bbaa-28f212cb2386)
   * 우선순위 큐는 우선순위가 가장 높은 데이터를 가장 먼저 삭제하는 자료구조입니다.
@@ -347,14 +347,14 @@ class Node {
 > - [자료구조: 우선순위 큐(Priority Queue)와 힙(Heap)](https://www.youtube.com/watch?v=AjFlp951nz0)
 > - [우선순위 큐와 힙의 개념과 차이, 사용 사례를 설명합니다! 힙이 어떻게 동작하는지도 예를 통해 자세히 설명합니다!](https://www.youtube.com/watch?v=P-FTb1faxlo)
 
-### Red-Black Tree
+### ☑️ Red-Black Tree
 
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [01. Red-Black Tree 개요](https://github.com/namjunemy/TIL/blob/master/Algorithm/red_black_tree_01.md)
 > - [02. Red-Black Tree insert fix-up](https://github.com/namjunemy/TIL/blob/master/Algorithm/red_black_tree_02.md)
 > - [03. Red-Black Tree delete, fix-up](https://github.com/namjunemy/TIL/blob/master/Algorithm/red_black_tree_03.md)
 
-### B+ Tree
+### ☑️ B+ Tree
 * `B Tree`는 일반적으로 `B- 트리`를 지칭합니다.
 * `B Tree` => `자녀 노드의 최대 개수를 입맛에 맞게 결정해서 쓸 수 있다!!!`
   * 만약에 단 2개가 아니라 3개를 저장하고 싶다면..?
@@ -380,10 +380,18 @@ class Node {
   3. 리프 노드들이 연결 리스트로 연결됨
 * `B* Tree`
   * `B-`나 `B+`에 비해 노드 분할과 병합 연산이 덜 빈번하게 발생 -> 공간 활용도가 높음 & 검색 성능 높음!
+
+#### ✔️ 왜 DB index로  B tree 계열이 사용되는가?
+<img width="600px" src="https://github.com/user-attachments/assets/a10f4c54-a999-46d7-aa76-beaaeaa33b99">
+
+
+
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [(1부) B tree의 개념과 특징, 데이터 삽입이 어떻게 동작하는지를 설명합니다! (DB 인덱스과 관련있는 자료 구조)](https://www.youtube.com/watch?v=bqkcoSm_rCs)
 > - [(2부) B tree 데이터 삭제 동작 방식을 설명합니다 (DB 인덱스과 관련있는 자료 구조)](https://www.youtube.com/watch?v=H_u28u0usjA)
 > - [(3부) B tree가 왜 DB 인덱스(index)로 사용되는지를 설명합니다](https://www.youtube.com/watch?v=liPSnc6Wzfk)
+
+
 
 ---
 
