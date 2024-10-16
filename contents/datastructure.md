@@ -11,6 +11,7 @@
 * [Binary Search Tree](#binary-search-tree)
 * [그래프(Graph)와 트리(Tree)의 차이점](#그래프와-트리의-차이점)
 * [Binary Heap](#binary-heap)
+* [AVL Tree](#avl-tree)
 * [Red-Black Tree](#red-black-tree)
 * [B+ Tree](#b-tree)
 
@@ -347,12 +348,35 @@ class Node {
 > - [자료구조: 우선순위 큐(Priority Queue)와 힙(Heap)](https://www.youtube.com/watch?v=AjFlp951nz0)
 > - [우선순위 큐와 힙의 개념과 차이, 사용 사례를 설명합니다! 힙이 어떻게 동작하는지도 예를 통해 자세히 설명합니다!](https://www.youtube.com/watch?v=P-FTb1faxlo)
 
-### Red-Black Tree
+### AVL Tree
+* 이진 탐색 트리(BST)의 한 종류
+* 스스로 균형(balancing)을 잡는 트리
+* balance factor를 통해서 균형 유지
+  * 노드의 balance factor를 구함 => `BF(x) = 왼쪽 서브트리의 높이 - 오른쪽 서브트리의 높이`
+  * 모든 노드의 balance factor는 `-1/0/1`이라는 특징 -> 이게 AVL
+  
+> :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
+> - [균형을 빡세게 유지하는 AVL 트리는 이진탐색트리의 단점을 어떻게 극복했을까요? 이진탐색트리면서도 균형을 유지하는 AVL 트리의 동작방식과 장단점을 살펴봅니다 :)](https://www.youtube.com/watch?v=syGPNOhsnI4)
 
+### Red-Black Tree
+* 이진 탐색 트리(BST)의 한 종류
+* 스스로 균형(balancing)을 잡는 트리
+* BST의 worst case의 단점을 개선
+  * 모든 노드는 red 혹은 black
+* `nill 노드` => RB Tree에만 존재하는 특징
+  * 자녀가 없을 때 자녀를 nill 노드로 표기
+  * 값이 있는 노드와 동등하게 취급
+  * RB 트리에서 leaf 노드는 nil 노드
+  * 모든 nil(leaf) 노드는 black
+* Red-Black 트리 속성
+  * red의 자녀들은 black이다 => 즉, red가 연속적으로 존재할 수 없다!
+  * 임의의 노드에서 자손 nil노드들까지 가는 경로들의 black수는 같다 (노드 x의 black height, 자기 자신은 카운트에서 제외)
+ 
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [01. Red-Black Tree 개요](https://github.com/namjunemy/TIL/blob/master/Algorithm/red_black_tree_01.md)
 > - [02. Red-Black Tree insert fix-up](https://github.com/namjunemy/TIL/blob/master/Algorithm/red_black_tree_02.md)
 > - [03. Red-Black Tree delete, fix-up](https://github.com/namjunemy/TIL/blob/master/Algorithm/red_black_tree_03.md)
+> - [(1부) 레드블랙트리(red-black tree)의 기본 개념과 특징을 살펴보고, 삽입 때 레드블랙트리가 어떻게 동작하는지를 아주 자세히 설명합니다~ 헷갈리시는 분들 커몬요](https://www.youtube.com/watch?v=2MdsebfJOyM)
 
 ### B+ Tree
 * `B Tree`는 일반적으로 `B- 트리`를 지칭합니다.
@@ -384,6 +408,9 @@ class Node {
 #### ✔️ 왜 DB index로  B tree 계열이 사용되는가?
 <img width="500px" src="https://github.com/user-attachments/assets/a10f4c54-a999-46d7-aa76-beaaeaa33b99">
 
+* B tree가 AVL/Red-Black Tree에 비해서, 데이터를 찾을 때 리프 노드까지 가는 거리가 상대적으로 짧아질 수 있기 때문에, 탐색 범위를 빠르게 좁힐 수 있습니다.
+  * B tree가 노드가 가질 수 있는 데이터 수가 많음 => second storage에서는 block단위로 데이터를 불러오는데, 아무래도 B tree가 각 노드별로 필요한 데이터를 좀 더 뭉쳐 있다보니, block단위에 대한 저장 공간 활용도가 더 좋습니다.
+
 
 
 > :arrow_double_up:[Top](#1-data-structure)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#1-data-structure)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
@@ -397,13 +424,5 @@ class Node {
 
 ## Reference
 > - []()
-
-## 추가로 다뤄볼 주제들..
-- Red Black Tree
-- AVL
-- Minimum Spanning Tree
-  - Kruskal Algorithm
-  - Prim Algorithm
-- Array vs Linked List
 
 ## :house: [Home](https://github.com/WeareSoft/tech-interview)
