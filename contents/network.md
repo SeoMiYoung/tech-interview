@@ -29,7 +29,8 @@
 ---
 
 ### OSI 7계층
-![image](https://github.com/user-attachments/assets/75d24049-df36-4823-be9b-6b538ba81771)
+<img src="https://github.com/user-attachments/assets/75d24049-df36-4823-be9b-6b538ba81771" width="700px">
+<img src="https://github.com/user-attachments/assets/bf90f469-1d9c-4e8e-a2af-22ab1f1ff1fb" width="700px">
 
 * OSI(Open Systems Interconnection Reference Model)란
     <img src="./images/osi-7-layer.png" width="60%" height="60%">
