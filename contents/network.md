@@ -877,6 +877,7 @@
 > - [http://adrenal.tistory.com/20](http://adrenal.tistory.com/20)
 > - [http://blog.jeonghwan.net/socket-io를-이용한-실시간-웹-구현](http://blog.jeonghwan.net/socket-io%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%8B%A4%EC%8B%9C%EA%B0%84-%EC%9B%B9-%EA%B5%AC%ED%98%84/)
 > - [http://woowabros.github.io/woowabros/2017/09/12/realtime-service.html](http://woowabros.github.io/woowabros/2017/09/12/realtime-service.html)
+> - [https://www.youtube.com/watch?v=fB3MB8TXNXM](https://www.youtube.com/watch?v=fB3MB8TXNXM)
 
 
 ### Frame Packet Segment Datagram
