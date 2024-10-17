@@ -102,6 +102,7 @@
 > - [https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies](https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies)
 
 ### XSS 공격 
+=> 말 그대로, SCRIPT공격이라고 생각하면 됨
 * 개념 
     * Cross-site 스크립팅 공격, 사이트 간 스크립팅 공격
     * 사용자가 입력한 정보를 출력할 때 스크립트가 실행되도록 하는 공격기법
