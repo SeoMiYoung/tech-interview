@@ -11,6 +11,23 @@
 ---
 
 ### 대칭키와 비대칭키 차이 
+![image](https://github.com/user-attachments/assets/13f64f30-3a01-4b80-abe8-7ce4f3661527)
+* `단방향 암호화`
+  * HASH(사전적 의미: 다지다) 사용
+    * 식재료를 믹서기로 한번 다지면, 원래 상태로 되돌릴 수 없듯이, 어떤 데이터를 HASH하면 그 데이터를 원래 상태로 되돌리기 어렵습니다.
+  * `무결성`에 굳굳~~!!
+  * 어떤 파일이 조작되었는지 아닌지를 파악할 때, HASH알고리즘이 유용함 
+  * 대표 EX) MD5, SHA-1, SHA-256, SHA-512(뒤 숫자가 더 클수록 강력)
+    * 그밖의 예) CRC, RIPEMD160
+* `양방향 암호화 - 대칭키 방식`
+  * 대칭키 방식: **하나의 키**로 암호화/복호화 다 하는 방식
+  * 대표 EX) `AES`
+* `양방향 암호화 - 비대칭키 방식`
+  * 비대칭키(=공개키) 방식: 두개의 키를 만들어서 암호화할 때 사용하는 키와, 복호화할 때 사용하는 키를 분리할 수 있는 방식
+  * 암/복호화용: RSAES
+  * 전자서명용: RSA-PSS 등..
+---------
+
 1. 대칭키 암호화 방식 (비밀키 암호화 방식)
 - 개념 
     - 하나의 비밀키를 이용한 암호화 방식 
@@ -20,6 +37,7 @@
 - 종류 
     1. 공개키로 암호화
         - 암호로서 효용성
+        - [https://www.youtube.com/watch?v=MR4sCU82tgo](https://www.youtube.com/watch?v=MR4sCU82tgo)
     2. 개인키로 암호화
         - 공인인증체계에 사용하는 전자서명법
         
@@ -47,6 +65,7 @@
     * 단방향 해시 함수의 문제점
         * 1. 인식 가능성(recognizability)
             * "레인보우 공격(rainbow attack)"
+              * 레인보우 공격은 미리 계산된 대규모 해시값 데이터베이스(레인보우 테이블)를 사용하여 암호화된 비밀번호의 원문을 찾아내는 해킹 기법입니다. 
             * 공격자가 전처리(pre-computing)된 다이제스트를 가능한 한 많이 확보한 다음 이를 탈취한 다이제스트와 비교해 원본 메시지를 찾아내거나 동일한 효과의 메시지를 찾을 수 있다.
         * 2. 속도(speed)
             * 해시 함수는 짧은 시간에 데이터를 검색하기 위해 설계된 것
@@ -79,14 +98,24 @@
 
 ### SQL Injection 공격
 * 개념 
-    * SQL 삽입공격은 웹에플리케이션에 대해서 가해지는 가장 흔한 공격 기법 중의 하나로 에플리케이션의 허점을 이용해서 데이터베이스를 비정상적으로 조작하는 기법
+    * SQL 삽입공격은 웹에플리케이션에 대해서 가해지는 가장 흔한 공격 기법 중의 하나로 에플리케이션의 허점을 이용해서 데이터베이스를 비정상적으로 조작하는 기법 
 * 방어 방법 
     * mysql_real_escape_string을 사용하는 것만으로도 많은 공격을 차단할 수 있다.
+      * 그렇지만, mysql_real_escape_string 함수만으로는 SQL 인젝션 공격을 완전히 차단할 수 없습니다. 이 함수는 일부공격을 방어할 수 있지만, 다음과 같은 한계가 있습니다.
+        1. 특정 문자열 이스케이프: 이 함수는 특정 문자들(\x00, \n, \r,,',",\x1a)만 이스케이프 처리합니다. 다른 형태의 공격에는 취약할 수 있습니다.
+        2. 멀티바이트 문자셋 취약점: 멀티바이트 문자셋(예:UTF-8)을 사용할 때 우회가 가능할 수 있습니다.
+        3. 구조적 취약점: SQL 쿼리 구조 자체의 취약점은 해결하지 못합니다.
+        4. 준비된 구문(Prepared Statements)미사용: 이 함수는 준비된 구문을 사용하지 않아 더 안전한 방법이 있습니다.
+        5. 더 이상 사용되지 않음: PHP 7.0.0부터 이 함수는 삭제되어 더 이상 사용할 수 없습니다.
 
 > :arrow_double_up:[Top](#9-security)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#9-security)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - []()
 
 ### CSRF 공격
+<img src="https://github.com/user-attachments/assets/59430ebe-733f-492d-8911-9a2b0efd8955" width="600px">
+<img src="https://github.com/user-attachments/assets/6da37471-976e-42cd-a4d3-ad9d00ff7f70" width="600px">
+
+
 * 개념 
     * Cross-site request forgery, CSRF, XSRF, 사이트 간 요청 위조
     * 일단 사용자가 웹사이트에 로그인한 상태에서 사이트 간 요청 위조 공격 코드가 삽입된 페이지를 열면, 공격 대상이 되는 웹사이트는 위조된 공격 명령이 믿을 수 있는 사용자로부터 발송된 것으로 판단하게 되어 공격에 노출된다.
@@ -96,7 +125,8 @@
     * 민감한 동작에 사용되는 쿠키는 짧은 수명만 갖도록 합니다.
 * **[참고]** XSS vs CSRF
     * 사이트 간 스크립팅(XSS)을 이용한 공격이 사용자가 특정 웹사이트를 신용하는 점을 노린 것이라면, 
-    * 사이트간 요청 위조(CSRF)는 특정 웹사이트가 사용자의 웹 브라우저를 신용하는 상태를 노린 것이다. 
+    * 사이트간 요청 위조(CSRF)는 특정 웹사이트가 사용자의 웹 브라우저를 신용하는 상태를 노린 것이다.
+      * CSRF 공격에서 "웹사이트가 사용자의 브라우저를 밎는다"라는 말은 다음과 같이 설명 가능합니다. 웹사이트는 로그인된 사용자의 브라우저에서 오는 모든 요청을 유효한 세션 쿠키만 있으면 정당한 사용자의 의도된 행동으로 간주하고 처리합니다. 이 신뢰를 악용하여 공격자는 사용자 모르게 악의적인 요청을 보낼 수 있습니다.
 
 > :arrow_double_up:[Top](#9-security)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#9-security)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies](https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies)
