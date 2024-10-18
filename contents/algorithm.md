@@ -216,6 +216,7 @@ void search(Node root) {
 ## Reference
 > - [https://github.com/tayllan/awesome-algorithms](https://github.com/tayllan/awesome-algorithms)
 > - [https://www.cs.usfca.edu/~galles/visualization/Algorithms.html](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+> - [[10분 테코톡] 썬샷의 최소 신장 트리와 최단 경로 알고리즘](https://www.youtube.com/watch?v=QOWgP2_kGYQ)
 
 
 ## :house: [Home](https://github.com/WeareSoft/tech-interview)
